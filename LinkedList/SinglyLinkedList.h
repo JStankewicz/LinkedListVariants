@@ -63,6 +63,10 @@ inline void SinglyLinkedList<KeyType>::Remove(SingleNode<KeyType>* x)
 			{
 				prev->next = current->next;
 			}
+			else //This is the head
+			{
+				head_ = current->next;
+			}
 
 			delete current;
 			break;
