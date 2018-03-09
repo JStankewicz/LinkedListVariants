@@ -85,6 +85,11 @@ inline size_t ILinkedList<NodeType, KeyType>::Count() const
 
 	while (node)
 	{
+		if (size > 0 && node == head_)
+		{
+			break; //We're in an infinite loop.
+		}
+
 		size++;
 		node = node->next;
 	}
