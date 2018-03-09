@@ -4,7 +4,14 @@ template<typename KeyType>
 struct SingleNode
 {
 public:
-	SingleNode(const KeyType& k);
+	SingleNode(const KeyType& k) : key(k) {}
+
+	SingleNode(const SingleNode&) = delete;
+	SingleNode(SingleNode&&) = delete;
+
+	SingleNode& operator=(const SingleNode&) = delete;
+	SingleNode& operator=(SingleNode&&) = delete;
+
 	~SingleNode() = default;
 
 	KeyType key;
@@ -12,13 +19,17 @@ public:
 };
 
 template<typename KeyType>
-inline SingleNode<KeyType>::SingleNode(const KeyType& k) : key(k) {}
-
-template<typename KeyType>
 struct DoubleNode
 {
 public:
 	DoubleNode(const KeyType& k);
+
+	DoubleNode(const DoubleNode&) = delete;
+	DoubleNode(DoubleNode&&) = delete;
+
+	DoubleNode& operator=(const DoubleNode&) = delete;
+	DoubleNode& operator=(DoubleNode&&) = delete;
+
 	~DoubleNode() = default;
 
 	KeyType key;
