@@ -9,14 +9,14 @@ using TestType = int;
 using TestNode = SingleNode<TestType>;
 using TestLinkedList = SinglyLinkedList<TestType>;
 
-TEST(LoopTest, EmptyList)
+TEST(SinglyLoopTest, EmptyList)
 {
 	TestLinkedList ll;
 
 	ASSERT_FALSE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, OneNodeList)
+TEST(SinglyLoopTest, OneNodeList)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -25,7 +25,7 @@ TEST(LoopTest, OneNodeList)
 	ASSERT_FALSE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, NotALoop)
+TEST(SinglyLoopTest, NotALoop)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -53,7 +53,7 @@ TEST(LoopTest, NotALoop)
 	ASSERT_FALSE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, TwoItemsLoop)
+TEST(SinglyLoopTest, TwoItemsLoop)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -70,7 +70,7 @@ TEST(LoopTest, TwoItemsLoop)
 	ASSERT_TRUE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, ThreeItemsLoop)
+TEST(SinglyLoopTest, ThreeItemsLoop)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -90,7 +90,7 @@ TEST(LoopTest, ThreeItemsLoop)
 	ASSERT_TRUE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, ThreeItemsLoopNotHead)
+TEST(SinglyLoopTest, ThreeItemsLoopNotHead)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -110,7 +110,7 @@ TEST(LoopTest, ThreeItemsLoopNotHead)
 	ASSERT_TRUE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, FourItemsLoop)
+TEST(SinglyLoopTest, FourItemsLoop)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
@@ -133,7 +133,7 @@ TEST(LoopTest, FourItemsLoop)
 	ASSERT_TRUE(loop::LoopExists(ll));
 }
 
-TEST(LoopTest, FourItemsLoopNotHead)
+TEST(SinglyLoopTest, FourItemsLoopNotHead)
 {
 	TestLinkedList ll;
 	TestNode* n1 = new TestNode(1);
