@@ -71,20 +71,6 @@ TEST(SinglyLinkedListTests, InsertMultipleReal) {
 	ASSERT_EQ(n1, ll.head()->next);
 }
 
-//This test breaks everything by creating a loop in the list.
-/*TEST(SinglyLinkedListTests, InsertRepeated) {
-	TestSinglyLinkedList ll;
-	TestSingleNode* n1 = new TestSingleNode(1);
-	TestSingleNode* n2 = new TestSingleNode(2);
-	ll.Insert(n1);
-	ll.Insert(n2);
-	ll.Insert(n1);
-
-	ASSERT_EQ(2, ll.Count());
-	ASSERT_EQ(n1, ll.head());
-	ASSERT_EQ(n2, ll.head()->next);
-}*/
-
 TEST(SinglyLinkedListTests, Delete) {
 	TestSinglyLinkedList ll;
 	ll.Insert(new TestSingleNode(1));

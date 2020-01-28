@@ -1,5 +1,7 @@
 #pragma once
 
+#include <set>
+
 template<typename KeyType>
 struct SingleNode
 {
@@ -68,31 +70,36 @@ protected:
 template<template<typename> class NodeType, typename KeyType>
 inline ILinkedList<NodeType, KeyType>::~ILinkedList()
 {
-	NodeType<KeyType>* to_delete = head_;
-	while (to_delete)
+	std::set<NodeType<KeyType>*> nodes; // Cheat in case of loops.
+	NodeType<KeyType>* node = head_;
+	bool added_node = true;
+
+	while (node && added_node)
 	{
-		NodeType<KeyType>* temp = to_delete->next;
-		delete to_delete;
-		to_delete = temp;
+		auto p = nodes.insert(node);
+		added_node = p.second;
+		node = node->next;
+	}
+
+	for (auto node : nodes)
+	{
+		delete node;
 	}
 }
 
 template<template<typename> class NodeType, typename KeyType>
 inline size_t ILinkedList<NodeType, KeyType>::Count() const
 {
-	size_t size = 0;
+	std::set<NodeType<KeyType>*> nodes; // Cheat in case of loops.
 	NodeType<KeyType>* node = head_;
+	bool added_node = true;
 
-	while (node)
+	while (node && added_node)
 	{
-		if (size > 0 && node == head_)
-		{
-			break; //We're in an infinite loop.
-		}
-
-		size++;
+		auto p = nodes.insert(node);
+		added_node = p.second;
 		node = node->next;
 	}
 
-	return size;
+	return nodes.size();
 }

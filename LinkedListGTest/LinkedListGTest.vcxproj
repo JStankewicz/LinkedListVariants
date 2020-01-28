@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DoublyLinkedListTest.cpp" />
+    <ClCompile Include="LoopTest.cpp" />
     <ClCompile Include="NodeTest.cpp" />
     <ClCompile Include="SinglyLinkedListTest.cpp" />
     <ClCompile Include="pch.cpp">
