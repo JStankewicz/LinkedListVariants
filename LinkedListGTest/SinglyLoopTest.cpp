@@ -53,6 +53,21 @@ TEST(SinglyLoopTest, NotALoop)
 	ASSERT_EQ(nullptr, loop::LoopExists(ll));
 }
 
+TEST(SinglyLoopTest, SelfLoop)
+{
+	TestLinkedList ll;
+	TestNode* n1 = new TestNode(1);
+	
+	ll.Insert(n1);
+	ll.Insert(n1);
+
+	ASSERT_EQ(1, ll.Count());
+	ASSERT_EQ(n1, ll.head());
+	ASSERT_EQ(n1, ll.head()->next);
+
+	ASSERT_NE(nullptr, loop::LoopExists(ll));
+}
+
 TEST(SinglyLoopTest, TwoItemsLoop)
 {
 	TestLinkedList ll;
