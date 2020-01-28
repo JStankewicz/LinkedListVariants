@@ -8,24 +8,12 @@ public:
 	DoublyLinkedList() = default;
 	virtual ~DoublyLinkedList() = default;
 	
-	DoubleNode<KeyType>* Search(const KeyType& key) const;
 	void Insert(DoubleNode<KeyType>* x);
 	void Remove(DoubleNode<KeyType>* x);
 };
 
 template<typename KeyType>
-inline DoubleNode<KeyType>* DoublyLinkedList<KeyType>::Search(const KeyType & key) const
-{
-	DoubleNode<KeyType>* x = head_;
-	while (x && x->key != key)
-	{
-		x = x->next;
-	}
-	return x;
-}
-
-template<typename KeyType>
-inline void DoublyLinkedList<KeyType>::Insert(DoubleNode<KeyType>* x)
+void DoublyLinkedList<KeyType>::Insert(DoubleNode<KeyType>* x)
 {
 	x->next = head_;
 	if (head_)
@@ -37,7 +25,7 @@ inline void DoublyLinkedList<KeyType>::Insert(DoubleNode<KeyType>* x)
 }
 
 template<typename KeyType>
-inline void DoublyLinkedList<KeyType>::Remove(DoubleNode<KeyType>* x)
+void DoublyLinkedList<KeyType>::Remove(DoubleNode<KeyType>* x)
 {
 	if (!x)
 	{

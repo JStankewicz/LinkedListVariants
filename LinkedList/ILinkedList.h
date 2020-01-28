@@ -56,10 +56,10 @@ public:
 
 	virtual ~ILinkedList();
 
-	virtual NodeType<KeyType>* Search(const KeyType& key) const = 0;
+	NodeType<KeyType>* Search(const KeyType& key) const;
 	virtual void Insert(NodeType<KeyType>* x) = 0;
 	virtual void Remove(NodeType<KeyType>* x) = 0;
-	
+
 	NodeType<KeyType>* head() const { return head_; }
 	size_t Count() const;
 
@@ -68,7 +68,7 @@ protected:
 };
 
 template<template<typename> class NodeType, typename KeyType>
-inline ILinkedList<NodeType, KeyType>::~ILinkedList()
+ILinkedList<NodeType, KeyType>::~ILinkedList()
 {
 	std::set<NodeType<KeyType>*> nodes; // Cheat in case of loops.
 	NodeType<KeyType>* node = head_;
@@ -88,7 +88,18 @@ inline ILinkedList<NodeType, KeyType>::~ILinkedList()
 }
 
 template<template<typename> class NodeType, typename KeyType>
-inline size_t ILinkedList<NodeType, KeyType>::Count() const
+NodeType<KeyType>* ILinkedList<NodeType, KeyType>::Search(const KeyType& key) const
+{
+	NodeType<KeyType>* x = head_;
+	while (x && x->key != key)
+	{
+		x = x->next;
+	}
+	return x;
+}
+
+template<template<typename> class NodeType, typename KeyType>
+size_t ILinkedList<NodeType, KeyType>::Count() const
 {
 	std::set<NodeType<KeyType>*> nodes; // Cheat in case of loops.
 	NodeType<KeyType>* node = head_;

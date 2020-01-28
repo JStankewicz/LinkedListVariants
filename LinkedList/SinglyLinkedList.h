@@ -16,24 +16,12 @@ public:
 
 	virtual ~SinglyLinkedList() = default;
 
-	SingleNode<KeyType>* Search(const KeyType& key) const override;
 	void Insert(SingleNode<KeyType>* x) override;
 	void Remove(SingleNode<KeyType>* x) override;
 };
 
 template<typename KeyType>
-SingleNode<KeyType>* SinglyLinkedList<KeyType>::Search(const KeyType& key) const
-{
-	SingleNode<KeyType>* x = head_;
-	while (x && x->key != key)
-	{
-		x = x->next;
-	}
-	return x;
-}
-
-template<typename KeyType>
-inline void SinglyLinkedList<KeyType>::Insert(SingleNode<KeyType>* x)
+void SinglyLinkedList<KeyType>::Insert(SingleNode<KeyType>* x)
 {
 	if (!x)
 	{
@@ -45,7 +33,7 @@ inline void SinglyLinkedList<KeyType>::Insert(SingleNode<KeyType>* x)
 }
 
 template<typename KeyType>
-inline void SinglyLinkedList<KeyType>::Remove(SingleNode<KeyType>* x)
+void SinglyLinkedList<KeyType>::Remove(SingleNode<KeyType>* x)
 {
 	if (!x) 
 	{
