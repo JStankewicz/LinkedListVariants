@@ -1,9 +1,8 @@
 #include "pch.h"
 
-#include "../LinkedList/DoublyLinkedList.h"
-#include "../LinkedList/SinglyLinkedList.h"
+#include "../LinkedList/ILinkedList.h"
 
-TEST(SingleNodeTest, Construction)
+TEST(SingleNode, Construction)
 {
 	const int ARBITRARY_INT = 1;
 	SingleNode<int> node(ARBITRARY_INT);
@@ -12,7 +11,7 @@ TEST(SingleNodeTest, Construction)
 	ASSERT_EQ(nullptr, node.next);
 }
 
-TEST(DoubleNodeTest, Construction)
+TEST(DoubleNode, Construction)
 {
 	const int ARBITRARY_INT = 1;
 	DoubleNode<int> node(ARBITRARY_INT);

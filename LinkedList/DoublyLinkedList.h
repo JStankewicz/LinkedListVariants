@@ -2,25 +2,6 @@
 #include "ILinkedList.h"
 
 template<typename KeyType>
-struct DoubleNode
-{
-public:
-	DoubleNode(const KeyType& k) : key(k) {}
-
-	DoubleNode(const DoubleNode&) = delete;
-	DoubleNode(DoubleNode&&) = delete;
-
-	DoubleNode& operator=(const DoubleNode&) = delete;
-	DoubleNode& operator=(DoubleNode&&) = delete;
-
-	~DoubleNode() = default;
-
-	KeyType key;
-	DoubleNode* next = nullptr;
-	DoubleNode* prev = nullptr;
-};
-
-template<typename KeyType>
 class DoublyLinkedList : public ILinkedList<DoubleNode, KeyType>
 {
 public:
