@@ -3,6 +3,24 @@
 #include "ILinkedList.h"
 
 template<typename KeyType>
+struct SingleNode
+{
+public:
+	SingleNode(const KeyType& k) : key(k) {}
+
+	SingleNode(const SingleNode&) = delete;
+	SingleNode(SingleNode&&) = delete;
+
+	SingleNode& operator=(const SingleNode&) = delete;
+	SingleNode& operator=(SingleNode&&) = delete;
+
+	~SingleNode() = default;
+
+	KeyType key;
+	SingleNode* next = nullptr;
+};
+
+template<typename KeyType>
 class SinglyLinkedList : public ILinkedList<SingleNode, KeyType>
 {
 public:	
